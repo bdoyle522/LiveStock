@@ -1,6 +1,9 @@
 import { combineReducers } from 'redux';
 
-function main(state = [], action) {
+const initialState = Immutable.Map({
+})
+
+function main(state = initialState, action) {
     switch (action.type) {
         default:
             return state

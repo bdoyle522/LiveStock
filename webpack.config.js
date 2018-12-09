@@ -37,6 +37,10 @@ module.exports = {
       extensions: ['*', '.js', '.jsx']
     },
     mode: 'development',
+    devtool: 'inline-source-map',
+    devServer: {
+      historyApiFallback: true
+    },
     plugins: [
       new HtmlWebPackPlugin({
         template: "./public/index.html",

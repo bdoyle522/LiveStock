@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
 
-export default class Home extends Component {
+export default class Dashboard extends Component {
     render() {
         return (
             <div className="container">
                 <ol>
                     <li>
-                        Overall market tickers
+                        User Portfolio info (market val change)
                     </li>
                     <li>
-                        Sign up! stuff
+                        Tickers personalized for user
                     </li>
                     <li>
-                        whatever
+                        blah
                     </li>
                 </ol>
             </div>
