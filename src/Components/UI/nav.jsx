@@ -6,7 +6,6 @@ export default class Nav extends Component {
     render() {
 
         const { location } = this.props;
-
         
         return (
             <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
