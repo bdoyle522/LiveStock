@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
 
 export default class Dashboard extends Component {
+    
     render() {
+
+        const { currentTickers } = this.props;
+
         return (
             <div className="container">
                 <ol>
@@ -12,7 +16,7 @@ export default class Dashboard extends Component {
                         Tickers personalized for user
                     </li>
                     <li>
-                        blah
+                        
                     </li>
                 </ol>
             </div>

@@ -3,13 +3,12 @@ import { render } from 'react-dom'
 import './app.scss';
 import AppMain from './Components/App';
 import 'bootstrap';
-import $ from 'jquery';
-import Popper from 'popper.js';
 import { Provider, connect } from 'react-redux';
-import { createStore, bindActionCreators } from 'redux';
-import { browserHistory } from 'react-router';
+import { createStore, bindActionCreators, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
 import { BrowserRouter } from 'react-router-dom'; 
 import rootReducer from './Reducers/main';
+import runtime from 'serviceworker-webpack-plugin/lib/runtime';
 
 import * as Actions from './Actions/main';
 
@@ -23,7 +22,7 @@ const mapStateToProps = (state) => {
     return state.main.toObject();
 }
 
-const store = createStore(rootReducer)
+const store = createStore(rootReducer, applyMiddleware(thunk))
 
 const App = connect(
     mapStateToProps,
@@ -40,4 +39,22 @@ render(
     </Provider>,   
     document.getElementById('root')   
 );
-//registerServiceWorker();
+
+
+
+// const registerServiceWorker = () => {
+
+//     if('serviceWorker' in navigator) {
+//         window.addEventListener('load', () => {
+//             navigator.serviceWorker.register('../src/worker_cache.js')
+//             .then(reg => console.log(reg))
+//             .catch(err => console.log("Error registering service worker: " + err))
+//         })
+//     } 
+// }
+
+// registerServiceWorker();
+
+// if ('serviceWorker' in navigator) {
+//     const registration = runtime.register();
+// }

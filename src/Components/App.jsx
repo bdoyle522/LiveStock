@@ -7,10 +7,13 @@ import Dashboard from './Dashboard/main';
 
 class App extends Component {
 
+    componentDidMount() {
+        this.props.actions.retrieveMarketTickers(["SPY", "DIA"]);
+    }
     render() {
 
-        const loggedIn = true;
-        const { history } = this.props;
+        const loggedIn = false;
+        const { history, currentTickers } = this.props;
 
         return (
             <div>
@@ -22,18 +25,11 @@ class App extends Component {
                         <Redirect to="/Home"/>
                     )
                 )}/>
-                <Route path="/Home" component={Home}/>
-                <Route path="/Dashboard" component={Dashboard}/>
+                <Route path="/Home" render={(props) => <Home {...this.props} />}/>
+                <Route path="/Dashboard" render={(props) => <Dashboard {...this.props} />}/>
                 <Route path="/Portfolio" component={Portfolio}/>
             </div>
         );
-    }
-}
-
-class SomeComponent extends Component {
-
-    render() {
-        return <div>Hello</div>
     }
 }
 
